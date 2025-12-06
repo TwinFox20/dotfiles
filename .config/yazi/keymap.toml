@@ -1,0 +1,10 @@
+[[mgr.prepend_keymap]]
+on = [ "c", "c" ]
+run = 'shell -- wl-copy < "$0"'
+desc = "Copy file content"
+
+[[mgr.append_keymap]]
+on = [ "c", "p" ]
+run = "copy path"
+desc = "Copy the file path"
+

@@ -1,0 +1,31 @@
+* {
+  background: transparent;
+  border-radius: 0;
+}
+
+#window {
+  background-color: #111; 
+}
+
+#input {
+  padding: 6px;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+#outer-box {
+}
+
+#img {
+  margin: 6px;
+}
+
+#entry {
+}
+
+#entry:selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#text {
+  margin: 2px;
+}
