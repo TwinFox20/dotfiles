@@ -1,7 +1,5 @@
 [mgr]
 show_hidden = true
-sort_by = "mtime"
-sort_reverse = true
 
 [preview]
 wrap = "yes"
@@ -32,5 +30,5 @@ java = [
 prepend_rules = [
   { name = "*.sh",   use = [ "edit", "view", "exec" ] },
   { name = "*.exe",  use = [ "wine" ] },
-  { name = "*.jar",  use = [ "open", "java" ] },
+  { name = "*.jar",  use = [ "java" ] },
 ]
