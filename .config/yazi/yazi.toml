@@ -10,12 +10,12 @@ edit = [
   { run = '[ -w "$@" ] && nvim -O"$n" "$@" || sudo -E nvim -O"$n" "$@"', desc = "Edit", block = true },
 ]
 
-view = [
+diff = [
   { run = 'nvim -d "$@"', desc = "Diff", block = true },
 ]
 
 exec = [
-  { run = 'zsh "$@"', desc = "Zsh", block = true }
+  { run = 'bash "$@"', desc = "Bash", block = true },
 ]
 
 wine = [
@@ -26,9 +26,26 @@ java = [
   { run = 'java -jar "$@"', desc = "Launch jar", block = true },
 ]
 
+xnb = [
+  { run = '"$@"', desc = "Unzip xnb", block = false },
+]
+
+swww = [
+  { run = 'swww img -t none "$@"', desc = "Set as wallpaper", block = false },
+]
+
 [open]
 prepend_rules = [
-  { name = "*.sh",   use = [ "edit", "view", "exec" ] },
-  { name = "*.exe",  use = [ "wine" ] },
-  { name = "*.jar",  use = [ "java" ] },
+  { name = "*.exe",  use = "wine" },
+  { name = "*.jar",  use = "java" },
+  { name = "*.xnb",  use = "xnb" },
+]
+
+append_rules = [
+  { name = "*", use = "diff" },
+  { name = "*.sh", use = "exec" },
+
+  { mime = "application/executable", use = "exec" },
+  { mime = "text/shellscript", use = "exec" },
+  { mime = "image/*", use = "swww" },
 ]

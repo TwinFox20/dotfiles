@@ -815,9 +815,7 @@ function PopupLyrics() {
 			return;
 		}
 
-		if (!document.hidden) {
-			requestAnimationFrame(() => tick(options));
-		}
+		requestAnimationFrame(() => tick(options));
 	}
 
 	function boolLocalStorage(name, defaultVal = true) {
@@ -976,6 +974,7 @@ button.btn:disabled {
 			const blurSize = createOptions(
 				"Blur size",
 				{
+					0: "0px",
 					2: "2px",
 					5: "5px",
 					10: "10px",

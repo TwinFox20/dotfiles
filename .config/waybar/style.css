@@ -1,9 +1,9 @@
 /* Styles */
 
 /* Colors (gruvbox) */
-@define-color black	   #282828;
-@define-color red	     #cc241d;
-@define-color green	   #98971a;
+@define-color black    #282828;
+@define-color red      #cc241d;
+@define-color green    #98971a;
 @define-color yellow   #d79921;
 @define-color blue     #458588;
 @define-color purple   #b16286;
@@ -19,46 +19,47 @@
 @define-color white    #ebdbb2;
 @define-color bg2      #504945;
 
-@define-color bg #000000;
-@define-color fg #d5d5d5;
-@define-color grey #949494;
-@define-color red_ember #B14242;
-@define-color red_glowing #DF6464;
-@define-color orange_glow #D87C4A;
-@define-color orange_blaze #C4693D;
+@define-color bg             #000000;
+@define-color fg             #d5d5d5;
+@define-color grey           #949494;
+@define-color red_ember      #B14242;
+@define-color red_glowing    #DF6464;
+@define-color orange_glow    #D87C4A;
+@define-color orange_blaze   #C4693D;
 @define-color orange_smolder #E49A44;
-@define-color green #629c7d;
+@define-color green          #629c7d;
 
 @define-color warning   @bryellow;
-@define-color critical	@red;
+@define-color critical  @red;
 @define-color mode      @black;
-@define-color unfocused	@bg;
+@define-color unfocused @bg;
 @define-color focused   @braqua;
 @define-color inactive  @purple;
-@define-color sound	    @brpurple;
+@define-color sound     @brpurple;
 @define-color network   @purple;
 @define-color memory    @braqua;
-@define-color cpu	      @braqua;
+@define-color cpu       @braqua;
 @define-color temp      @braqua;
-@define-color battery	  @braqua;
+@define-color battery   @braqua;
 @define-color date      @black;
-@define-color time	    @white;
+@define-color time      @white;
 
 * {
-	border: none;
-	border-radius: 0;
-	min-height: 0;
-	font-family: FiraCode, Siji;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: FiraCode, Siji;
   font-weight: 400;
-	font-size: 12px;
-	padding: 0;
+  font-size: 12px;
+  padding: 0;
 }
 
 /* The whole bar */
 #waybar {
-	background: none;
-	padding: 0;
-	margin: 0;
+/*  background: @bg; */
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Each module */
@@ -70,8 +71,8 @@
 #battery,
 #cpu,
 #memory {
-	padding-left: 2pt;
-	padding-right: 2pt;
+  padding-left: 2pt;
+  padding-right: 2pt;
 }
 
 #window {
@@ -81,69 +82,69 @@
 
 /* Workspaces stuff */
 #workspaces button {
-	color: @white;
-	background: @unfocused;
-	padding-left: 2pt;
-	padding-right: 2pt;
+  color: @white;
+  background: @unfocused;
+  padding-left: 2pt;
+  padding-right: 2pt;
 }
 
 /* Inactive (on unfocused output) */
 #workspaces button.visible {
-	color: @white;
-	background: @inactive;
+  color: @white;
+  background: @inactive;
 }
 
 /* Active (on focused output) */
 #workspaces button.focused {
-	color: @black;
-	background: @unfocused;
+  color: @black;
+  background: @unfocused;
 }
 
 /* Contains an urgent window */
 #workspaces button.urgent {
-	color: @black;
-	background: @orange_glow;
+  color: @black;
+  background: @orange_glow;
 }
 
 /* Style when cursor is on the button */
 #workspaces button:hover {
-	background: @black;
-	color: @white;
+  background: @black;
+  color: @white;
 }
 
 #window {
-	background: @unfocused;
+  background: @unfocused;
   color: @white;
 }
 
 #pulseaudio {
-	background: @sound;
-	color: @black;
+  background: @sound;
+  color: @black;
 }
 
 #network {
-	background: @network;
-	color: @white;
+  background: @network;
+  color: @white;
 }
 
 #memory {
-	background: @memory;
-	color: @black;
+  background: @memory;
+  color: @black;
 }
 
 #cpu {
-	background: @cpu;
-	color: @black;
+  background: @cpu;
+  color: @black;
 }
 
 #temperature {
-	background: @temp;
-	color: @black;
+  background: @temp;
+  color: @black;
 }
 
 #battery {
-	background: @battery;
-	color: @black;
+  background: @battery;
+  color: @black;
 }
 
 #tray {
@@ -151,38 +152,38 @@
 }
 
 #clock {
-	background: @unfocused;
-	color: @white;
+  background: @unfocused;
+  color: @white;
 }
 
 /* Arrows */
 #custom-arrow1 {
-	font-size: 11pt;
-	color: @unfocused;
-	background: @battery;
+  font-size: 11pt;
+  color: @unfocused;
+  background: @battery;
 }
 
 #custom-arrow2 {
-	font-size: 11pt;
-	color: @memory;
-	background: @network;
+  font-size: 11pt;
+  color: @memory;
+  background: @network;
 }
 
 #custom-arrow3 {
-	font-size: 11pt;
-	color: @network;
-	background: @sound;
+  font-size: 11pt;
+  color: @network;
+  background: @sound;
 }
 
 #custom-arrow4 {
-	font-size: 11pt;
-	color: @sound;
-	background: transparent;
+  font-size: 11pt;
+  color: @sound;
+  background: transparent;
 }
 
 #custom-arrow5 {
-	font-size: 11pt;
-	color: @unfocused;
-	background: transparent;
+  font-size: 11pt;
+  color: @unfocused;
+  background: transparent;
 }
 

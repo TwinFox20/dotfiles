@@ -45,6 +45,7 @@ allow_images=true
 allow_markup=true
 print_command=true
 
+allow-markup=false
 display_generic=false
 always_parse_args=false
 

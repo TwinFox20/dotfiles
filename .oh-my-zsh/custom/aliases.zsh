@@ -1,20 +1,33 @@
-# zsh
-alias q="exit"
-alias :q="exit"
-alias quit="exit"
+###############
+### ALIASES ###
+###############
+
+# Zsh
 alias zshrc="$EDITOR ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 alias zshaliases="$EDITOR $ZSH_CUSTOM/aliases.zsh"
-alias ohmyzsh="xdg-open ~/.oh-my-zsh" 
-alias hypr-config="xdg-open ~/.config/hypr/land"
+
+# Exit
+alias q="exit"
+alias :q="exit"
+alias quit="exit"
+
+# Package manager
 alias show_unused_pkgs="paru -Qtdq"
 alias remove_unused_pkgs="paru -Rns $(paru -Qtdq)"
 
-# zoxide
+# Other
+alias v="nvim"
+alias ff="fastfetch"
+alias cplc="history -1 | sed 's/^ *[0-9]\+ *//' | wl-copy"
+
+#################
+### FUNCTIONS ###
+#################
+
 eval "$(zoxide init zsh --cmd cd)"
 
-# yazi
-function y() {
+y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   IFS= read -r -d '' cwd < "$tmp"
@@ -22,7 +35,6 @@ function y() {
   rm -f -- "$tmp"
 }
 
-# vpn
 vpn() {
   if ! systemctl is-active --quiet warp-svc.service; then
     sudo systemctl start warp-svc.service > /dev/null 2>&1
@@ -38,13 +50,12 @@ vpn() {
   fi
 }
 
-# discord
 vencord() {
   DISCORD_PATH="/opt/discord"
   INSTALLER_PATH="$HOME/.local/bin/VencordInstallerCli-linux"
   INSTALLER_URL="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
 
-  paru -Sy --noconfirm discord >/dev/null 2>&1
+  sudo pacman -Sy --noconfirm discord 2>&1
 
   mkdir -p "$(dirname "$INSTALLER_PATH")"
   TMPFILE=$(mktemp)

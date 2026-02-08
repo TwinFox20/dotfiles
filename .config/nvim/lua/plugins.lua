@@ -12,12 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   "ficcdaf/ashen.nvim",
-  "nvim-lua/plenary.nvim",
-  "nvim-telescope/telescope.nvim",
   "nvim-treesitter/nvim-treesitter",
-})
-
-require("nvim-treesitter.configs").setup({
-  auto_install = true
 })
 

@@ -25,3 +25,5 @@ vim.api.nvim_set_var('loaded_ruby_provider',    0)
 vim.api.nvim_set_var('loaded_perl_provider',    0)
 vim.api.nvim_set_var('loaded_python3_provider', 0)
 
+vim.opt.rtp:append(vim.fn.stdpath("data") .. "/site")
+

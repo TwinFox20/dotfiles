@@ -56,9 +56,10 @@
       "mode": "month",
       "mode-mon-col": 3,
       "format": {
-        "days": "<span size='10pt'><b>{}</b></span>",
-        "weeks": "<span color='#FF0000'>{:%W}</span>",
-        "today": "<span color='#FFFF00'>{}</span>"
+        "days": "<span color='#EBDBB2'size='10pt'><b>{}</b></span>",
+        "weeks": "<span>{:%W}</span>",
+        "today": "<span color='#D87C4A'>{}</span>",
+        "months": "<span color='#B16286'>{}</span>"
       }
     },
     "actions": {
@@ -88,17 +89,20 @@
   },
 
   "network": {
-    "interval": 5,
-    "format-wifi": "{essid} ({signalStrength}%)",
     "format-ethernet": " {ifname}",
+    "format-wifi": "{essid} ({signalStrength}%)",
+    "format-linked": "No ip",
     "format-disconnected": "No connection",
+    "format-disabled": "Disabled",
     "format-alt": " {ipaddr}/{cidr}",
+    "on-click-right": "kitty -T \"iwctl\" iwctl",
     "tooltip": false
   },
 
   "hyprland/window": {
     "format": "{}",
-    "max-length": 80,
+    "swap-icon-label": true,
+    "max-length": -1,
     "tooltip": false
   },
 
