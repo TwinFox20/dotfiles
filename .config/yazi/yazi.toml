@@ -10,10 +10,6 @@ edit = [
   { run = '[ -w "$@" ] && nvim -O"$n" "$@" || sudo -E nvim -O"$n" "$@"', desc = "Edit", block = true },
 ]
 
-diff = [
-  { run = 'nvim -d "$@"', desc = "Diff", block = true },
-]
-
 exec = [
   { run = 'bash "$@"', desc = "Bash", block = true },
 ]
@@ -42,7 +38,6 @@ prepend_rules = [
 ]
 
 append_rules = [
-  { name = "*", use = "diff" },
   { name = "*.sh", use = "exec" },
 
   { mime = "application/executable", use = "exec" },

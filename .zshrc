@@ -28,3 +28,6 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 . "$HOME/.local/bin/env"
+
+# dotnet
+export PATH="$PATH:/home/twinfox/.dotnet/tools"

@@ -103,13 +103,15 @@
     "format": "{}",
     "swap-icon-label": true,
     "max-length": -1,
-    "tooltip": false
+    "tooltip": false,
+    "rewrite": {
+      "Spotify Free": "Spotify"
+    }
   },
 
   "hyprland/workspaces": {
-    "disable-scroll-wraparound": true,
-    "smooth-scrolling-threshold": 4,
-    "enable-bar-scroll": true,
+    "show-special": true,
+    "special-visible-only": true,
     "format": "{name}"
   },
 

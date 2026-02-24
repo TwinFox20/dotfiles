@@ -19,7 +19,13 @@ alias remove_unused_pkgs="paru -Rns $(paru -Qtdq)"
 # Other
 alias v="nvim"
 alias ff="fastfetch"
+alias uf="uwufetch"
+alias code="codium"
 alias cplc="history -1 | sed 's/^ *[0-9]\+ *//' | wl-copy"
+alias terraria="/home/twinfox/.local/share/Steam/steamapps/common/tModLoader/start-tModLoader.sh"
+alias terraria_server="/home/twinfox/.local/share/Steam/steamapps/common/tModLoader/start-tModLoaderServer.sh -config /home/twinfox/.local/share/Steam/steamapps/common/tModLoader/calamityServerConfig.txt -steam -lobby friends"
+alias terraria_log_watch="watch -n1 tail -n 45 /home/twinfox/.steam/root/steamapps/common/tModLoader/tModLoader-Logs/server.log"
+alias terraria_log="nvim /home/twinfox/.steam/root/steamapps/common/tModLoader/tModLoader-Logs/server.log"
 
 #################
 ### FUNCTIONS ###
@@ -52,7 +58,8 @@ vpn() {
 
 vencord() {
   DISCORD_PATH="/opt/discord"
-  INSTALLER_PATH="$HOME/.local/bin/VencordInstallerCli-linux"
+  DISCORD_BIN="/usr/bin/discord"
+  INSTALLER_PATH="$HOME/.local/bin/VencordInstallerCli"
   INSTALLER_URL="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
 
   sudo pacman -Sy --noconfirm discord 2>&1
@@ -69,5 +76,6 @@ vencord() {
   fi
 
   sudo "$INSTALLER_PATH" -repair -location "$DISCORD_PATH"
+  setsid discord >/dev/null 2>&1 < /dev/null &
+  disown
 }
-

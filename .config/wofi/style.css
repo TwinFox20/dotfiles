@@ -1,4 +1,7 @@
 * {
+  font-family: "FiraCode Retina", monospace;
+  font-size: 16px;
+
   background: transparent;
   border-radius: 0;
 }
@@ -9,17 +12,12 @@
 
 #input {
   padding: 6px;
+  padding-left: 12px;
   border-color: rgba(255, 255, 255, 0.1);
-}
-
-#outer-box {
 }
 
 #img {
   margin: 6px;
-}
-
-#entry {
 }
 
 #entry:selected {

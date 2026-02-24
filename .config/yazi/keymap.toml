@@ -6,5 +6,5 @@ desc = "Copy file content"
 [[mgr.append_keymap]]
 on = [ "c", "p" ]
 run = "copy path"
-desc = "Copy the file path"
+desc = "Copy file path"
 
