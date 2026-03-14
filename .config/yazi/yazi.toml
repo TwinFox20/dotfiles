@@ -7,40 +7,35 @@ tab_size = 2
 
 [opener]
 edit = [
-  { run = '[ -w "$@" ] && nvim -O"$n" "$@" || sudo -E nvim -O"$n" "$@"', desc = "Edit", block = true },
+  { run = '[ -w "$@" ] && nvim -O"$n" "$@" || sudo -E nvim -O"$n" "$@"', desc = "Edit", block = true }
 ]
 
 exec = [
-  { run = 'bash "$@"', desc = "Bash", block = true },
+  { run = 'bash "$@"', desc = "Bash", block = true }
 ]
 
 wine = [
-  { run = 'wine "$@"', desc = "Wine", block = true },
+  { run = 'wine "$@"', desc = "Wine", block = true }
 ]
 
 java = [
-  { run = 'java -jar "$@"', desc = "Launch jar", block = true },
-]
-
-xnb = [
-  { run = '"$@"', desc = "Unzip xnb", block = false },
+  { run = 'java -jar "$@"', desc = "Launch jar", block = true }
 ]
 
 swww = [
-  { run = 'swww img -t none "$@"', desc = "Set as wallpaper", block = false },
+  { run = 'swww img -t none "$@"', desc = "Set as wallpaper", block = false }
 ]
 
 [open]
 prepend_rules = [
+  { name = "*.sh", use = [ "edit", "exec" ] },
+  { mime = "text/shellscript", use = [ "edit", "exec" ] },
+
   { name = "*.exe",  use = "wine" },
   { name = "*.jar",  use = "java" },
-  { name = "*.xnb",  use = "xnb" },
 ]
 
 append_rules = [
-  { name = "*.sh", use = "exec" },
-
   { mime = "application/executable", use = "exec" },
-  { mime = "text/shellscript", use = "exec" },
-  { mime = "image/*", use = "swww" },
+  { mime = "image/*", use = "swww" }
 ]

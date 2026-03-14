@@ -1,14 +1,22 @@
-* {
+.encore-dark-theme, .encore-dark-theme .encore-base-set {
   --background-elevated-base: black !important;
-  --fg-color: #1db954 !important;
 }
 
-.x-progressBar-fillColor {
-  background: var(--fg-color) !important;
-}
+/* Hide connect to a device */
+[aria-describedby="connect-message-nudge"] { display: none !important; }
 
-:root {
-  --scroll: 0 !important;
+/* Smooth Bars */
+.x-progressBar-foreground { transition: --progress-bar-transform 150ms linear !important; }
+
+/* Rounded Thicker Bars */
+.x-progressBar-foreground { background: #1db954 !important; }
+.x-progressBar-handle { display: none !important; }
+.x-progressBar-background,
+.x-progressBar-foreground,
+.x-progressBar-middleground,
+.x-progressBar-foregroundWrapper {
+  height: 100% !important;
+  --progress-bar-radius: 10px !important;
 }
 
 #Desktop_PanelContainer_Id > div > div.W3E0IT3_STcazjTeyOJa > div > span > div {

@@ -1,8 +1,11 @@
 .config/nvim/lazy-lock.json
-
+.config/nvim/lua/plugins/dankcolors.lua
 .config/yazi/flavors/
 .config/yazi/package.toml
-
 .config/spicetify/CustomApps/
 .config/spicetify/Extensions/
 .config/spicetify/config-xpui.ini
+.config/spicetify/Themes/marketplace/
+.config/niri/dms/
+.config/hypr/dms/
+

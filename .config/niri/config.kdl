@@ -1,0 +1,181 @@
+environment {
+  QT_QPA_PLATFORMTHEME "qt6ct"
+  QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
+}
+
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+  keyboard {
+    xkb {
+      layout "us,ru"
+      options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+    }
+    track-layout "window"
+    numlock
+  }
+
+  touchpad {
+    tap
+    natural-scroll
+  }
+
+  focus-follows-mouse
+  workspace-auto-back-and-forth
+}
+
+binds {
+  // Binds for running programs
+  Mod+T { spawn "kitty"; }
+  Mod+E { spawn-sh "kitty -e yazi"; }
+  Mod+D { spawn-sh "wofi --show drun"; }
+  Mod+A { spawn-sh "rofi -show window"; }
+  Mod+L { spawn-sh "loginctl lock-session"; }
+  Mod+V { spawn-sh "dms ipc call clipboard toggle"; }
+
+  // Window control
+  Mod+W repeat=false { toggle-overview; }
+  Mod+Q repeat=false { close-window; }
+
+  // Tile
+  Mod+BracketLeft  { consume-or-expel-window-left;  }
+  Mod+BracketRight { consume-or-expel-window-right; }
+
+  // Move window focus
+  Mod+Left  { focus-column-left;  }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up;   }
+  Mod+Right { focus-column-right; }
+
+  Mod+Home  { focus-column-first; }
+  Mod+End   { focus-column-last;  }
+
+  Mod+WheelScrollDown { focus-column-right; }
+  Mod+WheelScrollUp   { focus-column-left;  }
+
+  // Move column/window
+  Mod+Ctrl+Left  { move-column-left;  }
+  Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+Up    { move-window-up-or-to-workspace-up;     }
+  Mod+Ctrl+Right { move-column-right; }
+
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last;  }
+
+  Mod+Ctrl+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+WheelScrollUp   { move-column-left;  }
+
+  // Switch workspaces
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+
+  // Move active window to a workspace
+  Mod+Shift+1 { move-window-to-workspace 1; }
+  Mod+Shift+2 { move-window-to-workspace 2; }
+  Mod+Shift+3 { move-window-to-workspace 3; }
+  Mod+Shift+4 { move-window-to-workspace 4; }
+  Mod+Shift+5 { move-window-to-workspace 5; }
+  Mod+Shift+6 { move-window-to-workspace 6; }
+  Mod+Shift+7 { move-window-to-workspace 7; }
+  Mod+Shift+8 { move-window-to-workspace 8; }
+  Mod+Shift+9 { move-window-to-workspace 9; }
+
+
+  // Switch preset
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { switch-preset-window-height; }
+
+  // Maximize
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+
+  Mod+Ctrl+F { expand-column-to-available-width; }
+
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+  // Finer height adjustments when in column with other windows.
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  // Float
+  Mod+N { toggle-window-floating; }
+  Mod+Shift+N { switch-focus-between-floating-and-tiling; }
+
+  // Screenshot
+  Print      { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print  { screenshot-window; }
+
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // The quit action will show a confirmation dialog to avoid accidental exits.
+  Mod+Shift+E { quit; }
+  Ctrl+Alt+Delete { quit; }
+
+  // Powers off the monitors. To turn them back on, do any input like
+  // moving the mouse or pressing any other key.
+  Mod+Shift+P { power-off-monitors; }
+
+  // Audio
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+  XF86AudioMute    allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@   toggle"; }
+  XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+  // Media player
+  XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+  XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop";       }
+  XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous";   }
+  XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next";       }
+
+  // Brightness
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+}
+
+layout {
+  gaps 0
+  center-focused-column "never"
+  always-center-single-column
+  empty-workspace-above-first
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66666
+  }
+
+  default-column-width { proportion 0.5; }
+
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66666
+  }
+
+  focus-ring { width 1; }
+
+  border { width 1; }
+}
+
+spawn-at-startup "copyq"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
+
+hotkey-overlay { skip-at-startup; }
+
+prefer-no-csd
+
+screenshot-path null
+
+animations { slowdown 0.8; }
+
+include "dms/colors.kdl"
+include "dms/outputs.kdl"
+include "dms/windowrules.kdl"

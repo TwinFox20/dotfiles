@@ -1,5 +1,5 @@
 * {
-  font-family: "FiraCode Retina", monospace;
+  font-family: "FiraCode Retina";
   font-size: 16px;
 
   background: transparent;
@@ -7,10 +7,11 @@
 }
 
 #window {
-  background-color: #111; 
+  background-color: #111;
 }
 
 #input {
+  color: white;
   padding: 6px;
   padding-left: 12px;
   border-color: rgba(255, 255, 255, 0.1);
@@ -25,5 +26,6 @@
 }
 
 #text {
+  color: white;
   margin: 2px;
 }
