@@ -27,6 +27,7 @@ alias terraria_server="/home/twinfox/.local/share/Steam/steamapps/common/tModLoa
 alias terraria_log_watch="watch -n1 tail -n 45 /home/twinfox/.steam/root/steamapps/common/tModLoader/tModLoader-Logs/server.log"
 alias terraria_log="nvim /home/twinfox/.steam/root/steamapps/common/tModLoader/tModLoader-Logs/server.log"
 
+
 #################
 ### FUNCTIONS ###
 #################
@@ -79,3 +80,4 @@ vencord() {
   setsid discord >/dev/null 2>&1 < /dev/null &
   disown
 }
+

@@ -1,6 +1,5 @@
 environment {
-  QT_QPA_PLATFORMTHEME "qt6ct"
-  QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
+//  ELECTRON_OZONE_PLATFORM_HINT "x11"
 }
 
 // https://yalter.github.io/niri/Configuration:-Input
@@ -24,7 +23,7 @@ input {
 }
 
 binds {
-  // Binds for running programs
+  // Basic binds
   Mod+T { spawn "kitty"; }
   Mod+E { spawn-sh "kitty -e yazi"; }
   Mod+D { spawn-sh "wofi --show drun"; }
@@ -113,14 +112,7 @@ binds {
   Ctrl+Print { screenshot-screen; }
   Alt+Print  { screenshot-window; }
 
-  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-  // The quit action will show a confirmation dialog to avoid accidental exits.
   Mod+Shift+E { quit; }
-  Ctrl+Alt+Delete { quit; }
-
-  // Powers off the monitors. To turn them back on, do any input like
-  // moving the mouse or pressing any other key.
   Mod+Shift+P { power-off-monitors; }
 
   // Audio
@@ -142,7 +134,6 @@ binds {
 
 layout {
   gaps 0
-  center-focused-column "never"
   always-center-single-column
   empty-workspace-above-first
 
@@ -165,7 +156,6 @@ layout {
   border { width 1; }
 }
 
-spawn-at-startup "copyq"
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
 
 hotkey-overlay { skip-at-startup; }
@@ -177,5 +167,6 @@ screenshot-path null
 animations { slowdown 0.8; }
 
 include "dms/colors.kdl"
+include "dms/cursor.kdl"
 include "dms/outputs.kdl"
 include "dms/windowrules.kdl"
