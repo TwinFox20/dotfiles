@@ -23,6 +23,9 @@ input {
 }
 
 binds {
+  // Discord mute
+  F8 { spawn-sh "xdotool key F8"; }
+
   // Basic binds
   Mod+T { spawn "kitty"; }
   Mod+E { spawn-sh "kitty -e yazi"; }
