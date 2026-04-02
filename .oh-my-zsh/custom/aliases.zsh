@@ -8,24 +8,20 @@ alias zshsource="source ~/.zshrc"
 alias zshaliases="$EDITOR $ZSH_CUSTOM/aliases.zsh"
 
 # Exit
-alias q="exit"
-alias :q="exit"
-alias quit="exit"
+for a in q :q quit; do
+  alias $a="exit";
+done
 
 # Package manager
+alias yay="paru"
 alias show_unused_pkgs="paru -Qtdq"
 alias remove_unused_pkgs="paru -Rns $(paru -Qtdq)"
 
 # Other
 alias v="nvim"
 alias ff="fastfetch"
-alias uf="uwufetch"
 alias code="codium"
 alias cplc="history -1 | sed 's/^ *[0-9]\+ *//' | wl-copy"
-alias terraria="/home/twinfox/.local/share/Steam/steamapps/common/tModLoader/start-tModLoader.sh"
-alias terraria_server="/home/twinfox/.local/share/Steam/steamapps/common/tModLoader/start-tModLoaderServer.sh -config /home/twinfox/.local/share/Steam/steamapps/common/tModLoader/calamityServerConfig.txt -steam -lobby friends"
-alias terraria_log_watch="watch -n1 tail -n 45 /home/twinfox/.steam/root/steamapps/common/tModLoader/tModLoader-Logs/server.log"
-alias terraria_log="nvim /home/twinfox/.steam/root/steamapps/common/tModLoader/tModLoader-Logs/server.log"
 
 
 #################
@@ -59,7 +55,6 @@ vpn() {
 
 vencord() {
   DISCORD_PATH="/opt/discord"
-  DISCORD_BIN="/usr/bin/discord"
   INSTALLER_PATH="$HOME/.local/bin/VencordInstallerCli"
   INSTALLER_URL="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
 
