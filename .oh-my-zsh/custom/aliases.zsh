@@ -12,13 +12,17 @@ for a in q :q quit; do
   alias $a="exit";
 done
 
+# Nvim
+for a in v vi vim; do
+  alias $a="nvim";
+done
+
 # Package manager
 alias yay="paru"
 alias show_unused_pkgs="paru -Qtdq"
 alias remove_unused_pkgs="paru -Rns $(paru -Qtdq)"
 
 # Other
-alias v="nvim"
 alias ff="fastfetch"
 alias code="codium"
 alias cplc="history -1 | sed 's/^ *[0-9]\+ *//' | wl-copy"
