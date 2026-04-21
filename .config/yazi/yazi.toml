@@ -7,35 +7,37 @@ tab_size = 2
 
 [opener]
 edit = [
-  { run = '[ -w "$@" ] && nvim -O"$n" "$@" || sudo -E nvim -O"$n" "$@"', desc = "Edit", block = true }
+  { run = 'nvim -O"$n" "$@"', desc = "Edit", block = true }
 ]
 
-exec = [
-  { run = 'bash "$@"', desc = "Bash", block = true }
+open = [
+  { run = 'xdg-terminal-exec', desc = "Open", orphan = true }
+]
+
+script = [
+  { run = 'xdg-terminal-exec bash "$@"', desc = "Bash", orphan = true }
 ]
 
 wine = [
-  { run = 'wine "$@"', desc = "Wine", block = true }
+  { run = 'xdg-terminal-exec wine "$@"', desc = "Wine", orphan = true }
 ]
 
 java = [
-  { run = 'java -jar "$@"', desc = "Launch jar", block = true }
+  { run = 'xdg-terminal-exec java -jar "$@"', desc = "Launch jar", orphan = true }
 ]
 
-swww = [
-  { run = 'swww img -t none "$@"', desc = "Set as wallpaper", block = false }
+term = [
 ]
 
 [open]
 prepend_rules = [
-  { name = "*.sh", use = [ "edit", "exec" ] },
-  { mime = "text/shellscript", use = [ "edit", "exec" ] },
+  { url = "*.sh",              use = [ "edit", "script" ] },
+  { mime = "text/shellscript", use = [ "edit", "script" ] },
 
-  { name = "*.exe",  use = "wine" },
-  { name = "*.jar",  use = "java" },
+  { url = "*.exe",  use = "wine" },
+  { url = "*.jar",  use = "java" },
 ]
 
 append_rules = [
-  { mime = "application/executable", use = "exec" },
-  { mime = "image/*", use = "swww" }
+  { mime = "*", use = "open" },
 ]

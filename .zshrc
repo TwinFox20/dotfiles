@@ -31,3 +31,5 @@ source <(fzf --zsh)
 
 # dotnet
 export PATH="$PATH:/home/twinfox/.dotnet/tools"
+
+clear

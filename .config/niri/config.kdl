@@ -1,8 +1,4 @@
-environment {
-  ELECTRON_OZONE_PLATFORM_HINT "x11"
-}
-
-// https://yalter.github.io/niri/Configuration:-Input
+// https://yalter.github.io/niri/Configuration
 input {
   keyboard {
     xkb {
@@ -144,15 +140,17 @@ layout {
     proportion 0.33333
     proportion 0.5
     proportion 0.66666
+    proportion 1.0
   }
-
-  default-column-width { proportion 0.5; }
 
   preset-window-heights {
     proportion 0.33333
     proportion 0.5
     proportion 0.66666
+    proportion 1.0
   }
+
+  default-column-width { proportion 0.5; }
 
   focus-ring { width 1; }
 
@@ -160,6 +158,11 @@ layout {
 }
 
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
+
+environment {
+ XDG_CURRENT_DESKTOP "niri"
+  ELECTRON_OZONE_PLATFORM_HINT "x11"
+}
 
 hotkey-overlay { skip-at-startup; }
 
@@ -169,7 +172,10 @@ screenshot-path null
 
 animations { slowdown 0.8; }
 
+// Include dms files
 include "dms/colors.kdl"
-include "dms/cursor.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
 include "dms/outputs.kdl"
+include "dms/cursor.kdl"
 include "dms/windowrules.kdl"
