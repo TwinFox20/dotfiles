@@ -1,11 +1,11 @@
 export SUDO_EDITOR="nvim"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/oh-my-zsh"
 
 ZSH_THEME="custom"
 HYPHEN_INSENSITIVE="true"
-plugins=(F-Sy-H uv npm alias-finder zsh-autosuggestions)
+plugins=(F-Sy-H uv npm zsh-autosuggestions)
 
 zstyle ':omz:update' mode auto
 

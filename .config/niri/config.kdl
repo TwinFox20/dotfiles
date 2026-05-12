@@ -19,6 +19,8 @@ input {
 }
 
 binds {
+   Mod+Shift+O { focus-monitor-next; }
+
   // Discord mute
   F8 { spawn-sh "xdotool key F8"; }
 
@@ -28,7 +30,8 @@ binds {
   Mod+D { spawn-sh "wofi --show drun"; }
   Mod+A { spawn-sh "rofi -show window"; }
   Mod+L { spawn-sh "loginctl lock-session"; }
-  Mod+V { spawn-sh "dms ipc call clipboard toggle"; }
+  Mod+V { spawn-sh "dms ipc clipboard toggle"; }
+  Mod+P { spawn-sh "dms ipc notepad toggle"; }
 
   // Window control
   Mod+W repeat=false { toggle-overview; }
@@ -150,7 +153,7 @@ layout {
     proportion 1.0
   }
 
-  default-column-width { proportion 0.5; }
+  default-column-width { proportion 1.0; }
 
   focus-ring { width 1; }
 

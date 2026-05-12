@@ -10,13 +10,13 @@
 local options = {
     screenshot_key = 's',
     file_ext = "png",
-    save_location = "~/Pictures/mpv/screenshots/",
+    save_location = "~/Pictures/mpv/",
     time_stamp_format = "%tY-%tm-%td_%tH-%tM-%tS",
     show_message = false,
     short_saved_message = true,
     save_as_time_stamp = true,
     save_based_on_chapter_name = false,
-    include_YouTube_ID = true,
+    include_YouTube_ID = false,
     copy_to_clipboard = true,
     clipboard_filename = "mpvscreenshot.png",
 }
@@ -73,8 +73,8 @@ end
 
 local function extract_youtube_id(filename)
     if not options.include_YouTube_ID then return "" end
-    return filename:match("[?&]v=([^&]+)") 
-        or filename:match("([%w_-]+)%?si=") 
+    return filename:match("[?&]v=([^&]+)")
+        or filename:match("([%w_-]+)%?si=")
         or ""
 end
 

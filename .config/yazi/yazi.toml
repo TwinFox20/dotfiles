@@ -4,29 +4,25 @@ show_hidden = true
 [preview]
 wrap = "yes"
 tab_size = 2
+max_width  = 1920
+max_height = 1080
 
 [opener]
 edit = [
-  { run = 'nvim -O"$n" "$@"', desc = "Edit", block = true }
-]
-
-open = [
-  { run = 'xdg-terminal-exec', desc = "Open", orphan = true }
+  { run = 'xdg-terminal-exec nvim -O"$n" "$@"', desc = "Edit", orphan = true },
+  { run = 'xdg-terminal-exec nvim -d "$@"',     desc = "Diff", orphan = true },
 ]
 
 script = [
-  { run = 'xdg-terminal-exec bash "$@"', desc = "Bash", orphan = true }
+  { run = 'xdg-terminal-exec bash "$@"', desc = "Bash", orphan = true },
 ]
 
 wine = [
-  { run = 'xdg-terminal-exec wine "$@"', desc = "Wine", orphan = true }
+  { run = 'xdg-terminal-exec wine "$@"', desc = "Wine", orphan = true },
 ]
 
 java = [
-  { run = 'xdg-terminal-exec java -jar "$@"', desc = "Launch jar", orphan = true }
-]
-
-term = [
+  { run = 'xdg-terminal-exec java -jar "$@"', desc = "Launch jar", orphan = true },
 ]
 
 [open]
@@ -36,8 +32,4 @@ prepend_rules = [
 
   { url = "*.exe",  use = "wine" },
   { url = "*.jar",  use = "java" },
-]
-
-append_rules = [
-  { mime = "*", use = "open" },
 ]

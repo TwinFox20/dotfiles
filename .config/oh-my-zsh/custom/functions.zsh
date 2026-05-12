@@ -1,39 +1,7 @@
-###############
-### ALIASES ###
-###############
-
-# Zsh
-alias zshrc="$EDITOR ~/.zshrc"
-alias zshsource="source ~/.zshrc"
-alias zshaliases="$EDITOR $ZSH_CUSTOM/aliases.zsh"
-
-# Exit
-for a in q :q quit; do
-  alias $a="exit";
-done
-
-# Nvim
-for a in v vi vim; do
-  alias $a="nvim";
-done
-
-# Package manager
-alias yay="paru"
-alias show_unused_pkgs="paru -Qtdq"
-alias remove_unused_pkgs="paru -Rns $(paru -Qtdq)"
-
-# Other
-alias ff="fastfetch"
-alias code="codium"
-alias cplc="history -1 | sed 's/^ *[0-9]\+ *//' | wl-copy"
-
-
-#################
-### FUNCTIONS ###
-#################
-
+# Zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
+# Yazi
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
@@ -42,6 +10,7 @@ y() {
   rm -f -- "$tmp"
 }
 
+# Cloudflare warp 1.1.1.1
 vpn() {
   if ! systemctl is-active --quiet warp-svc.service; then
     sudo systemctl start warp-svc.service > /dev/null 2>&1
@@ -57,26 +26,28 @@ vpn() {
   fi
 }
 
+# Tailscale
+haru() {
+  sudo systemctl start tailscaled.service
+  tailscale status
+  sudo tailscale login --login-server "https://tail.linkoringer.ru/" >&1 2>&1
+  tailscale status | grep haru | cut -c 1-13
+  wl-copy $(tailscale status | grep haru | cut -c 1-13)
+}
+
+# Update Discord
 vencord() {
-  DISCORD_PATH="/opt/discord"
-  INSTALLER_PATH="$HOME/.local/bin/VencordInstallerCli"
   INSTALLER_URL="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
 
   sudo pacman -Sy --noconfirm discord 2>&1
 
-  mkdir -p "$(dirname "$INSTALLER_PATH")"
   TMPFILE=$(mktemp)
   trap 'rm -f "$TMPFILE"' EXIT
 
   curl -sSLf "$INSTALLER_URL" -o "$TMPFILE"
+  chmod +x "$TMPFILE"
 
-  if [ ! -f "$INSTALLER_PATH" ] || ! cmp -s "$TMPFILE" "$INSTALLER_PATH"; then
-    mv "$TMPFILE" "$INSTALLER_PATH"
-    chmod +x "$INSTALLER_PATH"
-  fi
-
-  sudo "$INSTALLER_PATH" -repair -location "$DISCORD_PATH"
+  sudo "$TMPFILE" -repair
   setsid discord >/dev/null 2>&1 < /dev/null &
   disown
 }
-
