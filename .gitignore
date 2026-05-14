@@ -6,5 +6,6 @@
 .config/spicetify/CustomApps/
 .config/spicetify/Extensions/
 .config/spicetify/config-xpui.ini
+.config/mpv/scripts/
 .config/niri/dms/
 .config/hypr/dms/

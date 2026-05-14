@@ -9,20 +9,20 @@ max_height = 1080
 
 [opener]
 edit = [
-  { run = 'xdg-terminal-exec nvim -O"$n" "$@"', desc = "Edit", orphan = true },
-  { run = 'xdg-terminal-exec nvim -d "$@"',     desc = "Diff", orphan = true },
+  { run = 'nvim -O"$n" "$@"', desc = "Edit", block = true },
+  { run = 'nvim -d "$@"',     desc = "Diff", block = true },
 ]
 
 script = [
-  { run = 'xdg-terminal-exec bash "$@"', desc = "Bash", orphan = true },
+  { run = 'bash "$@"', desc = "Bash", orphan = true },
 ]
 
 wine = [
-  { run = 'xdg-terminal-exec wine "$@"', desc = "Wine", orphan = true },
+  { run = 'wine "$@"', desc = "Wine", orphan = true },
 ]
 
 java = [
-  { run = 'xdg-terminal-exec java -jar "$@"', desc = "Launch jar", orphan = true },
+  { run = 'java -jar "$@"', desc = "Launch jar", orphan = true },
 ]
 
 [open]

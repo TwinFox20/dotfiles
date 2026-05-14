@@ -163,8 +163,9 @@ layout {
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
 
 environment {
- XDG_CURRENT_DESKTOP "niri"
+  XDG_CURRENT_DESKTOP "niri"
   ELECTRON_OZONE_PLATFORM_HINT "x11"
+  QT_QPA_PLATFORMTHEME "xdgdesktopportal"
 }
 
 hotkey-overlay { skip-at-startup; }
