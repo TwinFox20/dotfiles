@@ -26,28 +26,10 @@ vpn() {
   fi
 }
 
-# Tailscale
-haru() {
-  sudo systemctl start tailscaled.service
-  tailscale status
-  sudo tailscale login --login-server "https://tail.linkoringer.ru/" >&1 2>&1
-  tailscale status | grep haru | cut -c 1-13
-  wl-copy $(tailscale status | grep haru | cut -c 1-13)
-}
-
 # Update Discord
 vencord() {
-  INSTALLER_URL="https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux"
-
   sudo pacman -Sy --noconfirm discord 2>&1
-
-  TMPFILE=$(mktemp)
-  trap 'rm -f "$TMPFILE"' EXIT
-
-  curl -sSLf "$INSTALLER_URL" -o "$TMPFILE"
-  chmod +x "$TMPFILE"
-
-  sudo "$TMPFILE" -repair
+  sh -c "$(curl -sS https://vencord.dev/install.sh)"
   setsid discord >/dev/null 2>&1 < /dev/null &
   disown
 }

@@ -19,7 +19,8 @@ input {
 }
 
 binds {
-   Mod+Shift+O { focus-monitor-next; }
+  Mod+O { toggle-window-rule-opacity; }
+  Mod+Shift+O { focus-monitor-next; }
 
   // Discord mute
   F8 { spawn-sh "xdotool key F8"; }
@@ -27,7 +28,7 @@ binds {
   // Basic binds
   Mod+T { spawn "kitty"; }
   Mod+E { spawn-sh "kitty -e yazi"; }
-  Mod+D { spawn-sh "wofi --show drun"; }
+  Mod+D { spawn-sh "dms ipc call launcher toggle"; }
   Mod+A { spawn-sh "rofi -show window"; }
   Mod+L { spawn-sh "loginctl lock-session"; }
   Mod+V { spawn-sh "dms ipc clipboard toggle"; }
@@ -174,7 +175,7 @@ prefer-no-csd
 
 screenshot-path null
 
-animations { slowdown 0.8; }
+animations { slowdown 0.5; }
 
 // Include dms files
 include "dms/colors.kdl"

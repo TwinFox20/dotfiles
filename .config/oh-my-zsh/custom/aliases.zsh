@@ -25,6 +25,7 @@ alias yay="paru"
 alias show_unused_pkgs="paru -Qtdq"
 
 # Other
+alias cd-="cd - > /dev/null"
 alias ff="clear; fastfetch"
 alias code="codium"
 alias cplc="history -1 | sed 's/^ *[0-9]\+ *//' | wl-copy"
