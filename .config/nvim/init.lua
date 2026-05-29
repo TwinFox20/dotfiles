@@ -6,7 +6,11 @@ end
 
 vim.opt.rtp:prepend(lazy_path)
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false
+  }
+})
 require("autocmds")
 require("keybinds")
 require("options")

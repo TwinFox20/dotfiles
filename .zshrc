@@ -16,6 +16,9 @@ else
   compinit -C;
 fi;
 
+# nvm
+source /usr/share/nvm/init-nvm.sh
+
 # pnpm
 export PNPM_HOME="/home/twinfox/.local/share/pnpm"
 export NODE_PATH="$HOME/.local/share/pnpm/global/5/node_modules"

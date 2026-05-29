@@ -164,6 +164,7 @@ layout {
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
 
 environment {
+  TERMINAL "kitty"
   XDG_CURRENT_DESKTOP "niri"
   ELECTRON_OZONE_PLATFORM_HINT "x11"
   QT_QPA_PLATFORMTHEME "xdgdesktopportal"

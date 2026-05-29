@@ -1,4 +1,4 @@
-PROMPT="%{$fg[cyan]%}%~ \$(git_prompt_info) %{$reset_color%}
+PROMPT=" %{$fg[cyan]%}%~ \$(git_prompt_info) %{$reset_color%}
 |> "
 
 # git theming

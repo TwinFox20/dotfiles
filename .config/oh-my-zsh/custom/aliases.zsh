@@ -17,14 +17,10 @@ done
 # Eza
 alias ls='eza --color=always --group-directories-first --icons'
 alias lS='ls -1'
-alias lx='ls -lahHg --git'
 alias lt='ls --tree --level=2'
 
-# Package manager
-alias yay="paru"
-alias show_unused_pkgs="paru -Qtdq"
-
 # Other
+alias yay="paru"
 alias cd-="cd - > /dev/null"
 alias ff="clear; fastfetch"
 alias code="codium"
