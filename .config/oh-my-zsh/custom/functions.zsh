@@ -30,6 +30,7 @@ vpn() {
 vencord() {
   sudo pacman -Sy --noconfirm discord 2>&1
   sh -c "$(curl -sS https://vencord.dev/install.sh)"
+  pkill -9 Discord
   setsid discord >/dev/null 2>&1 < /dev/null &
   disown
 }

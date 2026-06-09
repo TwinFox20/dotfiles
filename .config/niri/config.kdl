@@ -161,8 +161,6 @@ layout {
   border { width 1; }
 }
 
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
-
 environment {
   TERMINAL "kitty"
   XDG_CURRENT_DESKTOP "niri"
