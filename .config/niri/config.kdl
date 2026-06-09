@@ -28,11 +28,10 @@ binds {
   // Basic binds
   Mod+T { spawn "kitty"; }
   Mod+E { spawn-sh "kitty -e yazi"; }
-  Mod+D { spawn-sh "dms ipc call launcher toggle"; }
-  Mod+A { spawn-sh "rofi -show window"; }
   Mod+L { spawn-sh "loginctl lock-session"; }
-  Mod+V { spawn-sh "dms ipc clipboard toggle"; }
   Mod+P { spawn-sh "dms ipc notepad toggle"; }
+  Mod+V { spawn-sh "dms ipc clipboard toggle"; }
+  Mod+A { spawn-sh "dms ipc call launcher toggle"; }
 
   // Window control
   Mod+W repeat=false { toggle-overview; }
