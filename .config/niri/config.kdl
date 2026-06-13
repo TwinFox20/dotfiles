@@ -31,7 +31,7 @@ binds {
   Mod+L { spawn-sh "loginctl lock-session"; }
   Mod+P { spawn-sh "dms ipc notepad toggle"; }
   Mod+V { spawn-sh "dms ipc clipboard toggle"; }
-  Mod+A { spawn-sh "dms ipc call launcher toggle"; }
+  Mod+D { spawn-sh "dms ipc call launcher toggle"; }
 
   // Window control
   Mod+W repeat=false { toggle-overview; }
@@ -114,9 +114,6 @@ binds {
   Ctrl+Print { screenshot-screen; }
   Alt+Print  { screenshot-window; }
 
-  Mod+Shift+E { quit; }
-  Mod+Shift+P { power-off-monitors; }
-
   // Audio
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
@@ -167,6 +164,8 @@ environment {
   QT_QPA_PLATFORMTHEME "xdgdesktopportal"
 }
 
+spawn-sh-at-startup "dbus-update-activation-environment --systemd --all"
+
 hotkey-overlay { skip-at-startup; }
 
 prefer-no-csd
@@ -182,3 +181,4 @@ include "dms/alttab.kdl"
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
 include "dms/windowrules.kdl"
+include "dms/binds.kdl"
