@@ -157,15 +157,6 @@ layout {
   border { width 1; }
 }
 
-environment {
-  TERMINAL "kitty"
-  XDG_CURRENT_DESKTOP "niri"
-  ELECTRON_OZONE_PLATFORM_HINT "x11"
-  QT_QPA_PLATFORMTHEME "xdgdesktopportal"
-}
-
-spawn-sh-at-startup "dbus-update-activation-environment --systemd --all"
-
 hotkey-overlay { skip-at-startup; }
 
 prefer-no-csd
