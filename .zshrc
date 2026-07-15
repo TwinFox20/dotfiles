@@ -20,8 +20,8 @@ fi;
 source /usr/share/nvm/init-nvm.sh
 
 # pnpm
-export PNPM_HOME="/home/twinfox/.local/share/pnpm"
-export NODE_PATH="$HOME/.local/share/pnpm/global/5/node_modules"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export NODE_PATH="$PNPM_HOME/global/5/node_modules"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -31,8 +31,3 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 . "$HOME/.local/bin/env"
-
-# dotnet
-export PATH="$PATH:/home/twinfox/.dotnet/tools"
-
-clear
