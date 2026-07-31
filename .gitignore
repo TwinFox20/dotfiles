@@ -1,5 +1,5 @@
 .config/nvim/lazy-lock.json
-.config/nvim/lua/plugins/dankcolors.lua
+.config/nvim/lua/plugins/dms.lua
 .config/yazi/plugins/
 .config/yazi/flavors/
 .config/yazi/package.toml
@@ -10,3 +10,5 @@
 .config/niri/dms/
 .config/hypr/dms/
 .config/oh-my-zsh/custom/plugins/
+.config/nvim/lua/lualine/themes/dms.lua
+.config/nvim/colors/dms.lua
