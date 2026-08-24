@@ -9,16 +9,16 @@ max_height = 1080
 
 [opener]
 edit = [
-  { run = 'nvim -O"$n" "$@"', desc = "Edit", block = true },
-  { run = 'nvim -d "$@"',     desc = "Diff", block = true },
+  { run = "nvim -O %s", desc = "Edit", block = true },
+  { run = "nvim -d %s", desc = "Diff", block = true },
 ]
 
 wine = [
-  { run = 'wine "$@"', desc = "Wine", orphan = true },
+  { run = "wine %s", desc = "Wine", orphan = true },
 ]
 
 java = [
-  { run = 'java -jar "$@"', desc = "Launch jar", orphan = true },
+  { run = "java -jar %s", desc = "Launch jar", orphan = true },
 ]
 
 [open]

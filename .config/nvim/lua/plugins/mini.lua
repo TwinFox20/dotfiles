@@ -1,9 +1,6 @@
 return {
   {
     "nvim-mini/mini.indentscope",
-    on_attach = function()
-      vim.api.nvim_set_hl(0, "TreesitterContextBottom", { sp = "Grey", underline = true })
-    end,
   },
   {
     "nvim-mini/mini.surround",

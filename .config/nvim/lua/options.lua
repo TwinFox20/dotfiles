@@ -43,7 +43,7 @@ vim.opt.wildmode = "longest:full,full"
 vim.opt.showmode = false
 vim.opt.showcmd = true
 vim.opt.showcmdloc = "statusline"
-vim.opt.colorcolumn = "120" -- not visible with dank-colors
+vim.opt.colorcolumn = "120"
 
 -- Searching
 vim.opt.ignorecase = true
