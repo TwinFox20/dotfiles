@@ -1,10 +1,28 @@
-[[mgr.prepend_keymap]]
-on = [ "c", "c" ]
-run = 'shell -- wl-copy < "$0"'
-desc = "Copy file content"
+[mgr]
+prepend_keymap = [
+  {
+    on   = "T",
+    run  = "plugin toggle-pane max-preview",
+    desc = "Maximize or restore the preview pane",
+  },
+  {
+    on   = "<C-g>",
+    run  = 'shell -- rofi -theme fullscreen-preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"',
+    desc = "Grid view",
+  },
+  {
+    on   = "!",
+    run  = 'shell "$SHELL" --block',
+    desc = "Open $SHELL here",
+  },
+  {
+    on = [ "c", "c" ],
+    run = 'shell -- wl-copy < "$0"',
+    desc = "Copy file content",
+  },
+]
 
 [[mgr.append_keymap]]
 on = [ "c", "p" ]
 run = "copy path"
 desc = "Copy file path"
-
