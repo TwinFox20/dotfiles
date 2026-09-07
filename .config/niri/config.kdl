@@ -23,15 +23,16 @@ binds {
   Mod+Shift+O { focus-monitor-next; }
 
   // Discord mute
-  F8 { spawn-sh "xdotool key F8"; }
+  F8 repeat=false { spawn-sh "xdotool key F8"; }
 
   // Basic binds
-  Mod+T { spawn "kitty"; }
-  Mod+E { spawn-sh "kitty -e yazi"; }
-  Mod+L { spawn-sh "loginctl lock-session"; }
-  Mod+P { spawn-sh "dms ipc notepad toggle"; }
-  Mod+V { spawn-sh "dms ipc clipboard toggle"; }
-  Mod+D { spawn-sh "dms ipc call launcher toggle"; }
+  Mod+T repeat=false { spawn "kitty"; }
+  Mod+E repeat=false { spawn-sh "kitty -e yazi"; }
+  Mod+L repeat=false { spawn-sh "loginctl lock-session"; }
+  Mod+P repeat=false { spawn-sh "dms ipc notepad toggle"; }
+  Mod+V repeat=false { spawn-sh "dms ipc clipboard toggle"; }
+  Mod+D repeat=false { spawn-sh "dms ipc call launcher toggle"; }
+  Mod+A repeat=false { spawn-sh "dms ipc call launcher toggleQuery \\`"; }
 
   // Window control
   Mod+W repeat=false { toggle-overview; }
@@ -137,20 +138,19 @@ layout {
   empty-workspace-above-first
 
   preset-column-widths {
-    proportion 0.33333
-    proportion 0.5
     proportion 0.66666
-    proportion 1.0
+    proportion 0.5
+    proportion 0.33333
   }
 
   preset-window-heights {
-    proportion 0.33333
-    proportion 0.5
-    proportion 0.66666
     proportion 1.0
+    proportion 0.66666
+    proportion 0.5
+    proportion 0.33333
   }
 
-  default-column-width { proportion 1.0; }
+  default-column-width { proportion 0.9; }
 
   focus-ring { width 1; }
 
