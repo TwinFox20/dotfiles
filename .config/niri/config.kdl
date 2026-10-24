@@ -1,3 +1,12 @@
+// Include dms files
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/alttab.kdl"
+include "dms/outputs.kdl"
+include "dms/cursor.kdl"
+include "dms/windowrules.kdl"
+include "dms/binds.kdl"
+
 // https://yalter.github.io/niri/Configuration
 input {
   keyboard {
@@ -165,11 +174,9 @@ screenshot-path null
 
 animations { slowdown 0.5; }
 
-// Include dms files
-include "dms/colors.kdl"
-include "dms/layout.kdl"
-include "dms/alttab.kdl"
-include "dms/outputs.kdl"
-include "dms/cursor.kdl"
-include "dms/windowrules.kdl"
-include "dms/binds.kdl"
+window-rule {
+  geometry-corner-radius 0
+  clip-to-geometry true
+  tiled-state true
+  draw-border-with-background false
+}
