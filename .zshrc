@@ -31,3 +31,5 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 . "$HOME/.local/bin/env"
+
+bindkey '^H' backward-kill-word
