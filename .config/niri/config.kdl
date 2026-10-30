@@ -28,11 +28,10 @@ input {
 }
 
 binds {
+  F8 repeat=false { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
   Mod+O { toggle-window-rule-opacity; }
   Mod+Shift+O { focus-monitor-next; }
-
-  // Discord mute
-  F8 repeat=false { spawn-sh "xdotool key F8"; }
 
   // Basic binds
   Mod+T repeat=false { spawn "kitty"; }
