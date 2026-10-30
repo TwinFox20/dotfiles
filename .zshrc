@@ -21,13 +21,15 @@ source /usr/share/nvm/init-nvm.sh
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export NODE_PATH="$PNPM_HOME/global/5/node_modules"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  ":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
+# pnpm end
 
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 . "$HOME/.local/bin/env"
+
+bindkey '^H' backward-kill-word
