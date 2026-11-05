@@ -15,7 +15,7 @@ for a in v vi vim; do
 done
 
 # Eza
-alias ls='eza --color=always --group-directories-first --icons'
+alias ls='eza --color=always --group-directories-first'
 alias lS='ls -1'
 alias lt='ls --tree --level=2'
 

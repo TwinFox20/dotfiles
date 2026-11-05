@@ -1,8 +1,5 @@
 return {
   {
-    "nvim-mini/mini.indentscope",
-  },
-  {
     "nvim-mini/mini.surround",
     config = function()
       require("mini.surround").setup({

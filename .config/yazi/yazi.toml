@@ -10,7 +10,6 @@ max_height = 1080
 [opener]
 edit = [
   { run = "nvim -O %s", desc = "Edit", block = true },
-  { run = "nvim -d %s", desc = "Diff", block = true },
 ]
 
 wine = [
