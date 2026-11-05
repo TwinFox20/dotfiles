@@ -6,18 +6,13 @@ prepend_keymap = [
     desc = "Maximize or restore the preview pane",
   },
   {
-    on   = "<C-g>",
-    run  = 'shell -- rofi -theme fullscreen-preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"',
-    desc = "Grid view",
-  },
-  {
     on   = "!",
     run  = 'shell "$SHELL" --block',
     desc = "Open $SHELL here",
   },
   {
     on = [ "c", "c" ],
-    run = 'shell -- wl-copy < "%h"',
+    run = "shell -- wl-copy < %h",
     desc = "Copy file content",
   },
 ]
